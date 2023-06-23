@@ -18,41 +18,60 @@
     .sapper {
         opacity: 0;
         transition: .3s ease-in-out;
+        cursor: pointer;
     }
 </style>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-        </div>
-        <div class="row">
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-        </div>
-        <div class="row">
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-            <div class="img" onclick="toggleSapper(event.target)"></div>
-        </div>
+        <label for="x">X</label>
+        <input type="number" id="x">
+
+        <label for="y">Y</label>
+        <input type="number" id="y">
+
+        <button onclick="splitImage()">Split Image</button>
+        <br><br>
+
+        <div id="imageContainer"></div>
     </div>
 
     <script>
-        const toggleSapper = (e) => {
-            if(e.classList.contains('sapper')) {
-                e.classList.remove('sapper')
-            } else {
-                e.classList.add('sapper');
+        function splitImage() {
+            let x = parseInt(document.getElementById("x").value);
+            let y = parseInt(document.getElementById("y").value);
+
+            let imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = ""; // Clear previous image cards
+
+            let cardWidth = 250;
+            let cardHeight = 250;
+            let totalCards = x * y;
+            let backgroundImageUrl = "C2/image.jpg";
+
+            for (let i = 0; i < totalCards; i++) {
+                let card = document.createElement("div");
+                card.classList.add("img");
+                card.classList.add("sapper");
+                card.style.backgroundImage = "url(" + backgroundImageUrl + ")";
+                card.style.backgroundPosition = -((i % x) * cardWidth) + "px " + -Math.floor(i / x) * cardHeight + "px";
+                card.addEventListener("click", function () {
+                    this.style.opacity = "0";
+                });
+                imageContainer.appendChild(card);
+            }
+
+            // Trigger reflow to animate the cards
+            imageContainer.offsetHeight;
+            
+            // Show the cards by removing the opacity
+            let cards = document.getElementsByClassName("sapper");
+            for (let j = 0; j < cards.length; j++) {
+                cards[j].style.opacity = "1";
             }
         }
     </script>
 </body>
 </html>
+
+
+
