@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Timer</title>
+</head>
+<body>
+    <div class="container">
+        <div id="timer-display">000 : 00</div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        let [milliseconds, seconds] = [0,0];
+        let timeRef = document.getElementById('timer-display');
+        let int = null;
+
+        document.getElementById('start').addEventListener('click', () => {
+            if( int !== null){
+                clearInterval(int);
+            }
+
+            int = setInterval(displayTime, 10);
+        })
+
+        document.getElementById('stop').addEventListener('click', () => {
+            clearInterval(int);
+        })
+
+        document.getElementById('reset').addEventListener('click', () => {
+            clearInterval(int);
+            [milliseconds, seconds] = [0,0,0,0];
+            timeRef.innerHTML = "000 : 00"
+        })
+
+        const displayTime = () => {
+            milliseconds += 10;
+            if(milliseconds == 1000){
+                milliseconds = 0;
+                seconds++
+                if(seconds == 60){
+                    seconds++
+                }
+            }
+
+            let ms = milliseconds < 10 ?"00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+            let s = seconds < 10 ? "0" + seconds : seconds;
+
+            timeRef.innerHTML = `${ms} : ${s}`;
+        }
+    </script>
+</body>
+</html>
