@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+</head>
+<style>
+    .img {
+        background-image: url('C2/image.jpg');
+        background-attachment: fixed;
+        width: 250px;
+        height: 250px;
+        display: inline-block;
+    }
+
+    .sapper {
+        opacity: 0;
+        transition: .3s ease-in-out;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="img " onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+        </div>
+        <div class="row">
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+        </div>
+        <div class="row">
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggelSapper(event.target)"></div>
+        </div>
+    </div>
+
+    <script>
+        const toggelSapper = (e) => {
+            if(e.classList.contains('sapper')) {
+                e.classList.add('sapper');
+            } else {
+                e.classList.remove('sapper');
+            }
+        }
+    </script>
+</body>
+</html>
