@@ -23,34 +23,34 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="img " onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
         </div>
         <div class="row">
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
         </div>
         <div class="row">
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
-            <div class="img" onclick="toggelSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
+            <div class="img" onclick="toggleSapper(event.target)"></div>
         </div>
     </div>
 
     <script>
-        const toggelSapper = (e) => {
+        const toggleSapper = (e) => {
             if(e.classList.contains('sapper')) {
-                e.classList.add('sapper');
+                e.classList.remove('sapper')
             } else {
-                e.classList.remove('sapper');
+                e.classList.add('sapper');
             }
         }
     </script>
