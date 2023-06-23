@@ -47,7 +47,7 @@
                 }
             }
 
-            let ms = milliseconds < 10 ?"00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+            let ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
             let s = seconds < 10 ? "0" + seconds : seconds;
 
             timeRef.innerHTML = `${ms} : ${s}`;
