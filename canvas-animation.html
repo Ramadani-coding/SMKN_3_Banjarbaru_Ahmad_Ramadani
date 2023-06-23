@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Animation</title>
+</head>
+<style>
+    .container {
+        width: 400px;
+        height: 320px;
+        background-color: green;
+        display: flex;
+        align-items: center;
+    }
+
+    .circle {
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50%;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .move-horizontal {
+        animation-name: move-horizontal;
+    }
+
+    @keyframes move-horizontal {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(400px);
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="circle move-horizontal"></div>
+    </div>
+</body>
+</html>
