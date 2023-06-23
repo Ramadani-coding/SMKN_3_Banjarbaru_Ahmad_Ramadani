@@ -28,6 +28,7 @@
         }
 
         .username input {
+            width: 100%;
             padding: 5px;
             color: white;
             background-color: rgb(84, 51, 8);
@@ -40,6 +41,41 @@
             color: white;
             background-color: rgb(84, 51, 8);
             font-size: 20px;
+        }
+
+        .instructions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .playbutton {
+            font-family: Arial, Helvetica, sans-serif;
+            width: auto;
+            cursor: pointer;
+            height: 50px;
+            background-color: green;
+            padding: 5px;
+            margin-top: 20px;
+            display: flex;
+            color: white;
+            font-size: 24px;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .about {
+            font-family: Arial, Helvetica, sans-serif;
+            width: auto;
+            cursor: pointer;
+            height: 50px;
+            background-color: yellow;
+            padding: 5px;
+            margin-top: 20px;
+            display: flex;
+            color: rgb(84, 51, 8);
+            font-size: 24px;
+            align-items: center;
+            border-radius: 8px;
         }
     </style>
 
@@ -63,7 +99,49 @@
                     <option value="pilihan3">hard</option>
                   </select>              
             </div>
+
+            <div class="instructions">
+                <div class="playbutton">
+                    <img src="imgs/Shovel.png" width="30px" alt="Shovel">
+                    <p>Play Game</p>
+                </div>
+                <div class="about">
+                    <p>Instruction</p>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <script>
+        // Ambil elemen tombol "about"
+        var aboutButton = document.querySelector('.about');
+    
+        // Tambahkan event listener untuk mengaktifkan modal saat tombol "about" diklik
+        aboutButton.addEventListener('click', function() {
+            // Buat elemen modal
+            var modal = document.createElement('div');
+            modal.classList.add('modal');
+    
+            // Tambahkan teks instruksi ke dalam modal
+            var instructionsText = document.createElement('p');
+            instructionsText.textContent = 'Teks instruksi...'; // Gantikan dengan teks instruksi yang diinginkan
+            modal.appendChild(instructionsText);
+    
+            // Tambahkan modal ke dalam body
+            document.body.appendChild(modal);
+    
+            // Fungsi untuk menutup modal saat diklik di luar modal
+            function closeModal(event) {
+                if (event.target === modal) {
+                    document.body.removeChild(modal);
+                    document.removeEventListener('click', closeModal);
+                }
+            }
+    
+            // Tambahkan event listener untuk menutup modal saat diklik di luar modal
+            document.addEventListener('click', closeModal);
+        });
+    </script>
+    
 </body>
 </html>
