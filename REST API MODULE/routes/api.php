@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Job_vacancieController;
-use App\Http\Controllers\Job_vacanciesController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('v1/job_vacancies', [Job_vacancieController::class, 'index']);
+
+
+Route::post('v1/auth/login', [LoginController::class, 'login']);
+
+Route::get('v1/auth/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::get('v1/job_vacancies', [Job_vacancieController::class, 'index'])->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
