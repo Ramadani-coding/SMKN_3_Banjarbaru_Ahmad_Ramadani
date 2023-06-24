@@ -7,8 +7,9 @@
                     Data Validation
                 </div>
                 <div class="list" v-for="validation in validations" :key="validation.id">
-                    <li class="list-group-item"> {{ validation.status }} </li>
-                    <li class="list-group-item"> {{ validation.Job_Category }} </li>
+                    <li class="list-group-item">Status {{ validation.status }} </li>
+                    <li class="list-group-item">Job Category {{ validation.job_category_id }} </li>
+                    <li class="list-group-item">Job Position {{ validation.job_position }} </li>
                 </div>
             </ul>
         </div>
