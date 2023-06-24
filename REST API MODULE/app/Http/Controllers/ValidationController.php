@@ -2,12 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ValidationResource;
 use App\Models\Validation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ValidationController extends Controller
 {
+    public function index()
+    {
+       $datas =  Validation::all();
+
+        return ValidationResource::collection($datas);
+    }
+
+
+
+
     public function store(Request $request)
     {
         $request->validate([

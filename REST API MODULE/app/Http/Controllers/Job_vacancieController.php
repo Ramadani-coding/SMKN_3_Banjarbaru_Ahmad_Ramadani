@@ -14,4 +14,11 @@ class Job_vacancieController extends Controller
 
         return Job_vacancieResource::collection($datas);
     }
+
+    public function show($id)
+    {
+        $data = Job_vacancie::find($id);
+
+        return Job_vacancieResource::make($data);
+    }
 }
